@@ -2,9 +2,20 @@
 import { loadConfig } from "./config.js";
 import { watch } from "./cli/watch.js";
 import { MyFundedPerpsClient } from "./client/api.js";
+import { runDemo } from "./demo.js";
 
 async function main(): Promise<void> {
   const [command, ...args] = process.argv.slice(2);
+
+  if (!command) {
+    console.error("Usage: bodyguard <watch|quote|--demo> [options]");
+    process.exit(1);
+  }
+
+  if (command === "--demo") {
+    await runDemo();
+    return;
+  }
 
   if (command === "watch") {
     const accountId = getFlag(args, "--account");
@@ -31,7 +42,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  console.error("Usage: bodyguard <watch|quote> [options]");
+  console.error("Usage: bodyguard <watch|quote|--demo> [options]");
   process.exit(1);
 }
 
