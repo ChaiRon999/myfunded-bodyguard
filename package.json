@@ -1,0 +1,20 @@
+{
+  "name": "myfunded-bodyguard",
+  "version": "0.1.0",
+  "description": "Autonomous risk guard for MyFundedPerps challenge accounts",
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": { "bodyguard": "src/index.ts" },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["myfundedperps", "prop-trading", "risk-management", "bodyguard"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.4.0"
+  }
+}
